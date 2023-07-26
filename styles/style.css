@@ -1,34 +1,71 @@
 @import url(reset.css);
 
 @font-face {
-    font-family: vazirNormal;
-    src: url('../fonts/vazir.eot');
-    src: url('../fonts/vazir.eot?#iefix') format('embedded-opentype'), url('../fonts/vazir.woff2') format('woff2'), url('../fonts/vazir.woff') format('woff'), url('../fonts/vazir.ttf') format('truetype');
-    font-weight: normal;
-    font-display: swap;
+  font-family: vazirNormal;
+  src: url("../fonts/vazir.eot");
+  src: url("../fonts/vazir.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/vazir.woff2") format("woff2"),
+    url("../fonts/vazir.woff") format("woff"),
+    url("../fonts/vazir.ttf") format("truetype");
+  font-weight: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: vazirBold;
-    src: url('../fonts/vazir-bold.eot');
-    src: url('../fonts/vazir-bold.eot?#iefix') format('embedded-opentype'), url('../fonts/vazir-bold.woff2') format('woff2'), url('../fonts/vazir-bold.woff') format('woff'), url('../fonts/vazir-bold.ttf') format('truetype');
-    font-weight: normal;
-    font-display: swap;
+  font-family: vazirBold;
+  src: url("../fonts/vazir-bold.eot");
+  src: url("../fonts/vazir-bold.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/vazir-bold.woff2") format("woff2"),
+    url("../fonts/vazir-bold.woff") format("woff"),
+    url("../fonts/vazir-bold.ttf") format("truetype");
+  font-weight: normal;
+  font-display: swap;
 }
-body{
+body {
+  font-family: vazirNormal;
+  direction: rtl;
+}
+#header {
+  height: 500px;
+  background: rgba(253, 214, 102, 1);
+}
+.container {
+  width: 1000px;
+
+  margin: 0 auto;
+}
+#header #header-section {
+  display: flex;
+}
+#header .text {
+  align-self: center;
+}
+#header .image img {
+  width: 400px;
+  position: relative;
+  top: 20px;
+}
+#header .title {
+  font-family: vazirBold;
+  font-size: 30px;
+  line-height: 35px;
+}
+#header p.text {
+  color: #3b3b3b;
+  padding: 15px 0 15px 15px;
+  text-align: justify;
+  line-height: 23px;
+}
+ #header .btn{
+    background-color: rgba(255, 114, 39, 1);
+    color: #fff;
+    border: none;
     font-family: vazirNormal;
-    direction: rtl;
-}
-#header{
-    height: 500px;
-    background: rgba(253, 214, 102, 1) ;
-}
-.container{
-    width: 900px;
-    
-    margin: 0 auto;
-}
-#header-section{
-    display: flex;
-    justify-content: space-between;
+    font-size: 18px;
+    padding: 5px 18px;
+    border-radius: 5px;
+ }
+#header .btn:hover{
+    opacity: 0.85;
+    cursor: pointer;
 }
