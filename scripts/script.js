@@ -17,8 +17,15 @@ function showAllProducts() {
 }
 showAllProducts();
 
-
+let n = 0;
 cartHeader.addEventListener('click',function(){
-    alert('cart header cilcked')
+  if(n==0){
+    cart.style.bottom = '0';
+    n++;
+  }else{
+    cart.style.bottom = '-329px';
+    n = 0;
+  }
+
 });
 

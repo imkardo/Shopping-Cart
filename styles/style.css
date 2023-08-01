@@ -125,7 +125,7 @@ body {
   height: 360px;
   position: fixed;
   left: 20px;
-  bottom: 0;
+  bottom: -330px;
   border-radius: 5px 5px 0 0;
 }
 .cart .cart-header {
@@ -136,7 +136,7 @@ body {
   text-align: center;
   padding: 8px 0;
 }
-.cart .cart-header:hover{
+.cart .cart-header:hover {
   cursor: pointer;
 }
 .cart .cart-items {
