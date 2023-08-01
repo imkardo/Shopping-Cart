@@ -30,7 +30,7 @@ body {
 
 #header {
   height: 500px;
-  background: rgba(253, 214, 102, 1);
+  background: rgba(102, 214, 253, 1);
 }
 .container {
   width: 1000px;
@@ -60,7 +60,7 @@ body {
   line-height: 23px;
 }
 #header .btn {
-  background-color: rgba(255, 114, 39, 1);
+  background-color: rgba(39, 114, 255, 1);
   color: #fff;
   border: none;
   font-family: vazirNormal;
@@ -130,11 +130,14 @@ body {
 }
 .cart .cart-header {
   border-radius: 5px 5px 0 0;
-  background-color: #388e3c;
+  background-color: rgba(39, 114, 255, 1);
   color: #fff;
   font-size: 16px;
   text-align: center;
   padding: 8px 0;
+}
+.cart .cart-header:hover{
+  cursor: pointer;
 }
 .cart .cart-items {
   height: 280px;
@@ -146,16 +149,16 @@ body {
   padding: 10px;
   font-size: 14px;
 }
-.cart .cart-item .p-name{
+.cart .cart-item .p-name {
   padding: 2px;
   border-radius: 3px;
 }
-.cart .cart-item .p-name:hover{
-cursor: pointer;
-background-color: #fa6060;
+.cart .cart-item .p-name:hover {
+  cursor: pointer;
+  background-color: #fa6060;
 }
-.cart .cart-item .plus{
-  background-color: green;
+.cart .cart-item .plus {
+  background-color: rgba(39, 114, 255, 1);
   color: #fff;
   width: 12px;
   height: 12px;
@@ -164,8 +167,8 @@ background-color: #fa6060;
   border-radius: 3px;
   padding: 1px;
 }
-.cart .cart-item .minus{
-  background-color: red;
+.cart .cart-item .minus {
+  background-color: #ff2b2b;
   color: #fff;
   width: 12px;
   height: 12px;
@@ -174,10 +177,10 @@ background-color: #fa6060;
   border-radius: 3px;
   padding: 1px;
 }
-.cart .cart-item .p-unit svg{
+.cart .cart-item .p-unit svg {
   font-size: 12px;
 }
-.cart .cart-item .p-unit svg:hover{
+.cart .cart-item .p-unit svg:hover {
   cursor: pointer;
 }
 .cart .total {

@@ -1,4 +1,6 @@
 let productsContainer = document.querySelector("#products");
+let cartHeader = document.querySelector(".cart-header");
+let cart = document.querySelector(".cart");
 
 function showAllProducts() {
   for (let i = 0; i < products.length; i++) {
@@ -13,5 +15,10 @@ function showAllProducts() {
 </div>`;
   }
 }
-
 showAllProducts();
+
+
+cartHeader.addEventListener('click',function(){
+    alert('cart header cilcked')
+});
+
