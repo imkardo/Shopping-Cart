@@ -10,7 +10,7 @@ function showAllProducts() {
   <div class="product-instock">تعداد موجود : `+ products[i].instock +`</div>
   <div class="product-data">
       <div class="product-price">`+ products[i].price +`</div>
-      <div class="add-to-cart"><i class="fa-solid fa-cart-shopping"></i></div>
+      <div class="add-to-cart" onclick="addToCart( `+ products[i].id +` )"><i class="fa-solid fa-cart-shopping"></i></div>
   </div>
 </div>`;
   }
@@ -29,3 +29,8 @@ cartHeader.addEventListener('click',function(){
 
 });
 
+// add to cart function
+
+function addToCart(id){
+  console.log("product " + id + ' added to cart')
+}
