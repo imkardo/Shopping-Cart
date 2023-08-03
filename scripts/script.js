@@ -1,7 +1,7 @@
 let productsContainer = document.querySelector("#products");
 let cartHeader = document.querySelector(".cart-header");
 let cartContainer = document.querySelector(".cart");
-
+let cartItems = document.querySelector(".cart-items");
 function showAllProducts() {
   for (let i = 0; i < products.length; i++) {
     productsContainer.innerHTML +=
@@ -50,5 +50,23 @@ function addToCart(id) {
   });
 
   cart.push(item);
-  console.log(cart);
+  renderCartItems();
+}
+
+// Render Cart Items
+function renderCartItems(){
+  cartItems.innerHTML = '';
+  for(let i = 0; i < cart.length; i++){
+    cartItems.innerHTML += `  <li class="cart-item">
+    <div class="p-name">`+ cart[i].name +`</div>
+    <div class="p-price">`+ cart[i].price +`</div>
+      <div class="p-unit">
+        <span class="plus"><i class="fa-solid fa-plus"></i></span>
+        <span class="unit">0</span>
+        <span class="minus"><i class="fa-solid fa-minus">111</i></span>
+
+      </div>
+   
+    </li>`
+  }
 }
