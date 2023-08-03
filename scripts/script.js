@@ -42,10 +42,13 @@ cartHeader.addEventListener("click", function () {
 // Cart Array
 let cart = [];
 
-
 // add to cart function
 
-function addToCart(id){
-cart.push(id)
-console.log(cart)
+function addToCart(id) {
+  let item = products.find(function (p) {
+    return p.id == id;
+  });
+
+  cart.push(item);
+  console.log(cart);
 }
