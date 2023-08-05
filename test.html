@@ -7,13 +7,17 @@
   </head>
   <body>
     <script>
-
-      let numbers = [1, 3, 5, 7, 9, 11, 16, 19, 22, 28];
+      /*   let numbers = [1, 3, 5, 7, 9, 11, 16, 19, 22, 28];
       let myNumbers2 = numbers.find(function check(n) {
         return n > 9;
       });
-      console.log(myNumbers2);
+      console.log(myNumbers2); */
 
+      let numbers = [1, 3, 5, 7, 9, 11, 16, 19, 22, 28];
+      let mapTest = numbers.map(function (n) {
+        return n * 2;
+      });
+      console.log(mapTest);
     </script>
   </body>
 </html>

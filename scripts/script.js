@@ -48,25 +48,54 @@ function addToCart(id) {
   let item = products.find(function (p) {
     return p.id == id;
   });
-
+  console.log(item);
+  item.numberOfUnits = 1;
   cart.push(item);
   renderCartItems();
 }
 
 // Render Cart Items
-function renderCartItems(){
-  cartItems.innerHTML = '';
-  for(let i = 0; i < cart.length; i++){
-    cartItems.innerHTML += `  <li class="cart-item">
-    <div class="p-name">`+ cart[i].name +`</div>
-    <div class="p-price">`+ cart[i].price +`</div>
+function renderCartItems() {
+  cartItems.innerHTML = "";
+  for (let i = 0; i < cart.length; i++) {
+    cartItems.innerHTML +=
+      `  <li class="cart-item">
+    <div class="p-name">` +
+      cart[i].name +
+      `</div>
+    <div class="p-price">` +
+      cart[i].price +
+      `</div>
       <div class="p-unit">
-        <span class="plus"><i class="fa-solid fa-plus"></i></span>
+        <span class="plus" onclick="changeNumberOfUnits('plus' , ` +
+      cart[i].id +
+      `)"><i class="fa-solid fa-plus"></i></span>
         <span class="unit">0</span>
-        <span class="minus"><i class="fa-solid fa-minus">111</i></span>
+        <span class="minus" onclick="changeNumberOfUnits('minus' , ` +
+      cart[i].id +
+      `)"><i class="fa-solid fa-minus">111</i></span>
 
       </div>
    
-    </li>`
+    </li>`;
   }
+}
+
+// change number of units
+function changeNumberOfUnits(action, id) {
+  // console.log(action + " - " + id);
+  cart = cart.map(function (item) {
+    let oldNumberOfUnits = item.numberOfUnits;
+    if (item.id == id) {
+      if (action == "plus") {
+        oldNumberOfUnits++;
+      } else if (action == "minus") {
+        oldNumberOfUnits--;
+      }
+    }
+
+    item.numberOfUnits = oldNumberOfUnits;
+    return item;
+  });
+  console.log(cart)
 }

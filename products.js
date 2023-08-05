@@ -35,7 +35,7 @@ let products = [
   {
     id: 4,
     name: "دستگاه سنگ تراش",
-    price: '1340000',
+    price: '1,340,000',
     instock: 7,
     imgSrc: "images/5.jpg",
   },
