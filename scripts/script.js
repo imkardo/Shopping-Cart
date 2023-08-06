@@ -70,10 +70,10 @@ function renderCartItems() {
         <span class="plus" onclick="changeNumberOfUnits('plus' , ` +
       cart[i].id +
       `)"><i class="fa-solid fa-plus"></i></span>
-        <span class="unit">0</span>
+        <span class="unit">`+ cart[i].numberOfUnits +`</span>
         <span class="minus" onclick="changeNumberOfUnits('minus' , ` +
       cart[i].id +
-      `)"><i class="fa-solid fa-minus">111</i></span>
+      `)"><i class="fa-solid fa-minus"></i></span>
 
       </div>
    
@@ -87,9 +87,9 @@ function changeNumberOfUnits(action, id) {
   cart = cart.map(function (item) {
     let oldNumberOfUnits = item.numberOfUnits;
     if (item.id == id) {
-      if (action == "plus") {
+      if (action == "plus" && oldNumberOfUnits < item.instock) {
         oldNumberOfUnits++;
-      } else if (action == "minus") {
+      } else if (action == "minus" && oldNumberOfUnits > 1) {
         oldNumberOfUnits--;
       }
     }
@@ -97,5 +97,5 @@ function changeNumberOfUnits(action, id) {
     item.numberOfUnits = oldNumberOfUnits;
     return item;
   });
-  console.log(cart)
+  renderCartItems();
 }
