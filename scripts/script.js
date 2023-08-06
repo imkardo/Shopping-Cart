@@ -2,6 +2,8 @@ let productsContainer = document.querySelector("#products");
 let cartHeader = document.querySelector(".cart-header");
 let cartContainer = document.querySelector(".cart");
 let cartItems = document.querySelector(".cart-items");
+let totalUnitEl = document.querySelector(".total-unit");
+let totalPriceEl = document.querySelector(".total-price");
 function showAllProducts() {
   for (let i = 0; i < products.length; i++) {
     productsContainer.innerHTML +=
@@ -45,13 +47,21 @@ let cart = [];
 // add to cart function
 
 function addToCart(id) {
-  let item = products.find(function (p) {
-    return p.id == id;
+  let itemId = cart.some(function (item) {
+    return item.id == id;
   });
-  console.log(item);
-  item.numberOfUnits = 1;
-  cart.push(item);
+
+  if (itemId) {
+    changeNumberOfUnits("plus", id);
+  } else {
+    let item = products.find(function (p) {
+      return p.id == id;
+    });
+    item.numberOfUnits = 1;
+    cart.push(item);
+  }
   renderCartItems();
+  renderTotal();
 }
 
 // Render Cart Items
@@ -70,7 +80,9 @@ function renderCartItems() {
         <span class="plus" onclick="changeNumberOfUnits('plus' , ` +
       cart[i].id +
       `)"><i class="fa-solid fa-plus"></i></span>
-        <span class="unit">`+ cart[i].numberOfUnits +`</span>
+        <span class="unit">` +
+      cart[i].numberOfUnits +
+      `</span>
         <span class="minus" onclick="changeNumberOfUnits('minus' , ` +
       cart[i].id +
       `)"><i class="fa-solid fa-minus"></i></span>
@@ -98,4 +110,17 @@ function changeNumberOfUnits(action, id) {
     return item;
   });
   renderCartItems();
+  renderTotal();
+}
+
+// Render Total
+function renderTotal(){
+  let totalPrice = 0;
+  let totalUnit = 0;
+  for(let i = 0; i<cart.length; i++){
+    totalUnit += cart[i].numberOfUnits;
+    totalPrice += cart[i].price * cart[i].numberOfUnits;
+  }
+  totalUnitEl.innerHTML = totalUnit;
+  totalPriceEl.innerHTML = totalPrice;
 }
