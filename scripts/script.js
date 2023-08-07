@@ -19,7 +19,7 @@ function showAllProducts() {
       `</div>
   <div class="product-data">
       <div class="product-price">` +
-      products[i].price +
+      commafy(products[i].price) +
       `</div>
       <div class="add-to-cart" onclick="addToCart( ` +
       products[i].id +
@@ -70,11 +70,13 @@ function renderCartItems() {
   for (let i = 0; i < cart.length; i++) {
     cartItems.innerHTML +=
       `  <li class="cart-item">
-    <div class="p-name">` +
+    <div class="p-name" onclick="deleteFromCart(` +
+      cart[i].id +
+      `)">` +
       cart[i].name +
       `</div>
     <div class="p-price">` +
-      cart[i].price +
+      commafy(cart[i].price) +
       `</div>
       <div class="p-unit">
         <span class="plus" onclick="changeNumberOfUnits('plus' , ` +
@@ -114,13 +116,33 @@ function changeNumberOfUnits(action, id) {
 }
 
 // Render Total
-function renderTotal(){
+function renderTotal() {
   let totalPrice = 0;
   let totalUnit = 0;
-  for(let i = 0; i<cart.length; i++){
+  for (let i = 0; i < cart.length; i++) {
     totalUnit += cart[i].numberOfUnits;
     totalPrice += cart[i].price * cart[i].numberOfUnits;
   }
   totalUnitEl.innerHTML = totalUnit;
-  totalPriceEl.innerHTML = totalPrice;
+  totalPriceEl.innerHTML = commafy(totalPrice);
+}
+// Delete From Cart
+function deleteFromCart(id) {
+  console.log(id + " deleted");
+  cart = cart.filter(function (del) {
+    return del.id != id;
+  });
+  renderCartItems();
+  renderTotal();
+}
+
+function commafy(num) {
+  var str = num.toString().split('.');
+  if (str[0].length >= 5) {
+      str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+  }
+  if (str[1] && str[1].length >= 5) {
+      str[1] = str[1].replace(/(\d{3})/g, '$1 ');
+  }
+  return str.join('.');
 }
