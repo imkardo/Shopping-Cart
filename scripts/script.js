@@ -1,9 +1,12 @@
+// Variables
 let productsContainer = document.querySelector("#products");
 let cartHeader = document.querySelector(".cart-header");
 let cartContainer = document.querySelector(".cart");
 let cartItems = document.querySelector(".cart-items");
 let totalUnitEl = document.querySelector(".total-unit");
 let totalPriceEl = document.querySelector(".total-price");
+
+// Show Products Items
 function showAllProducts() {
   for (let i = 0; i < products.length; i++) {
     productsContainer.innerHTML +=
@@ -137,12 +140,12 @@ function deleteFromCart(id) {
 }
 
 function commafy(num) {
-  var str = num.toString().split('.');
+  var str = num.toString().split(".");
   if (str[0].length >= 5) {
-      str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+    str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, "$1,");
   }
   if (str[1] && str[1].length >= 5) {
-      str[1] = str[1].replace(/(\d{3})/g, '$1 ');
+    str[1] = str[1].replace(/(\d{3})/g, "$1 ");
   }
-  return str.join('.');
+  return str.join(".");
 }
